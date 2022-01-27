@@ -47,7 +47,7 @@ Connected to a mongoDB Atlas account. credentials are hardcoded, if you would li
   `npm start` - to run application on port 3000
 
 - Backend:
-  `docker-compose up` - to build and run containers for each of the microservices
+  `docker-compose up` - to build and run containers for each of the microservices on port 5000
 
 ## Test Users
 
