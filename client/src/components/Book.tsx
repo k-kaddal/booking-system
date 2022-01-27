@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Rooms from "./Rooms";
-import { Container, Button } from "./styles/styles";
-import Dropdown from "./Dropdown";
+import { Button } from "./styles/styles";
 import { useStores } from "../store/StoresProvider";
 import { observer } from "mobx-react-lite";
-import { setTokenSourceMapRange } from "typescript";
 
 interface IProps {
   setStage: any;
@@ -20,6 +18,7 @@ const Book = (props: IProps) => {
   });
   const [error, setError] = useState("");
 
+  // FUNCTIONS
   const handleBooking = () => {
     if (!booking.time || !booking.roomId)
       setError("Select room and time to confirm your booking");
@@ -34,6 +33,11 @@ const Book = (props: IProps) => {
 
     if (!confirmedBooking) return setError("Already Booked");
     props.setStage(2);
+  };
+
+  const logoutUser = () => {
+    let logout = userStore.logoutUser;
+    props.setStage(0);
   };
 
   return (
@@ -56,13 +60,11 @@ const Book = (props: IProps) => {
           <div>Room: {booking.roomId}</div>
           <div>At: {booking.time}</div>
         </div>
-        {/* <Dropdown list={times} onSelect={setTime} /> */}
         <Button onClick={handleBooking}>Confirm Booking</Button>
-        <Button onClick={userStore.logoutUser}>Logout</Button>
+        <Button onClick={() => logoutUser()}>Logout</Button>
       </div>
       {error != "" ? <h3>{error}</h3> : null}
 
-      {/* <Rooms room={room} selectRoom={setRoom} /> */}
       <Rooms booking={booking} setBooking={setBooking} />
     </div>
   );

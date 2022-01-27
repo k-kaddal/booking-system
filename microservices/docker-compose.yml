@@ -19,6 +19,7 @@ services:
       - .env
     ports:
       - "5001:5001"
+      - "8001:8001"
     networks:
       - backend
 
@@ -30,6 +31,7 @@ services:
       - .env
     ports:
       - "5002:5002"
+      - "8002:8002"
     networks:
       - backend
 
@@ -41,5 +43,9 @@ services:
       - .env
     ports:
       - "5003:5003"
+      - "8003:8003"
     networks:
       - backend
+networks:
+  backend:
+    driver: bridge
