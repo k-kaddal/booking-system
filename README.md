@@ -1,6 +1,6 @@
 # BOOKING SYSTEM
 
-> Take-home Project : room booking system.
+> Project : room booking system.
 
 ## Table of Contents
 
